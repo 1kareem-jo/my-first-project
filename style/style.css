@@ -1,0 +1,274 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main section"
+        "footer footer footer"
+    ;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+/*control the elemnts inside the header*/
+#header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid rgb(17, 100, 126);
+    position: sticky;
+    top: 0;
+    background-color: whitesmoke;
+}
+
+/*giving the image some edits to make it circle*/
+.logo_img {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    box-shadow: 0 0 10px 0 black;
+}
+
+/*changing the color of the title and the size*/
+#header .title h1 {
+    text-transform: capitalize;
+    color: rgb(17, 100, 126);
+}
+
+/*edit the side button for the menu*/
+.list {
+    position: relative;
+    display: inline-block;
+}
+
+/*for the visible button*/
+.list button {
+    width: 100px;
+    height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif
+}
+
+/*adding some hover for the visible button*/
+.list button:hover {
+    color: whitesmoke;
+    background-color: rgba(14, 103, 119, 0.795);
+    transition-duration: 0.3s;
+}
+
+/*editing the invisible drop list*/
+.drop_list {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/*edit the links inside the invisible drop list*/
+.drop_list .main {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-transform: capitalize;
+}
+
+/*adding some hover*/
+.drop_list .main:hover {
+    color: whitesmoke;
+    background-color: rgba(14, 103, 119, 0.795);
+    transition-duration: 0.3s;
+}
+
+/*for viewing the invisible drop list*/
+.nav:hover .drop_list {
+    display: block;
+}
+
+/*for the visitors about the cafe*/
+#main {
+    grid-area: main;
+    justify-content: center;
+}
+
+/*for centering the text*/
+.wellcome {
+    display: flex;
+    justify-content: center;
+    border-bottom: 4px double rgb(17, 100, 126)
+}
+
+/*changing the color*/
+#main h1 {
+    text-transform: capitalize;
+    color: rgba(14, 103, 119, 0.795);
+}
+
+/*for centering the mini info*/
+.text {
+    display: flex;
+    justify-content: center;
+}
+
+#main p {
+    color: rgb(9, 50, 63);
+    text-transform: capitalize;
+    font-size: 1.4rem;
+}
+
+/*for images slider*/
+#images {
+    max-height: 500px;
+    max-width: 1000px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px 0 black;
+}
+
+.mySlide {
+    display: none;
+    width: 100%;
+}
+
+#images img {
+    vertical-align: middle;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+
+}
+
+#section {
+    grid-area: section;
+    background-color: rgba(240, 255, 255, 0.521);
+}
+
+/*for the seciton title*/
+#section h2 {
+    padding-bottom: 16px;
+    text-transform: capitalize;
+    color: rgb(17, 100, 126);
+    text-align: center;
+    font-size: 2rem;
+    border-bottom: 4px double rgb(17, 100, 126);
+}
+
+/*for the section text*/
+#section p {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.822);
+    font-size: 1.2rem;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+/*for the section list*/
+#section ul {
+    list-style-type: square;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+/*group of side butons*/
+#sidebar {
+    grid-area: sidebar;
+    display: grid;
+    overflow: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    height: 50%;
+}
+
+/*edit the side buttons*/
+#sidebar .aside_list {
+    height: 75px;
+    border-radius: 0;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    padding-top: 20px;
+    text-decoration: none;
+    color: rgb(17, 100, 126)
+}
+
+/*add some hover for the side buttons*/
+#sidebar .aside_list:hover {
+    background-color: rgba(14, 103, 119, 0.795);
+    color: whitesmoke;
+    transition-duration: 0.3s;
+}
+
+/*for the footer + the copright + links*/
+#footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid rgb(17, 100, 126);
+    background-color: whitesmoke;
+}
+
+#footer p {
+    font-size: 1.2rem;
+}
+
+#links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.5rem;
+}
+
+#links a:nth-child(1):hover {
+    color: blue;
+    transition-duration: 0.3s;
+}
+
+#links a:nth-child(2):hover {
+    color: #ee2a7b;
+    transition-duration: 0.3s;
+}
+
+/*for the responsive design*/
+@media screen and (max-width: 768px) {
+    body {
+        font-family: fantasy;
+        font-size: small;
+    }
+
+    #container {
+        grid-template-areas:
+            "header header"
+            "main main"
+            "footer footer"
+        ;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #sidebar,
+    #section {
+        display: none;
+    }
+
+    #section {
+        border-left: 2px solid rgb(17, 100, 126)
+    }
+
+    #images {
+        max-width: 400px;
+        margin-left: 50%;
+        transform: translateX(-50%)
+    }
+}
